@@ -1,0 +1,14 @@
+[Unit]
+Description=Shear Elegance Chatbot Demo
+After=network.target ollama.service
+
+[Service]
+Type=simple
+User=clarence
+WorkingDirectory=/home/clarence/demo-agent
+ExecStart=/usr/bin/python3 -m uvicorn main:app --host 0.0.0.0 --port 8080
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
